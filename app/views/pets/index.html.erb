@@ -1,7 +1,10 @@
-<h1>All THE PETS</h1>
+<h1>THE WANTED PETS</h1>
 
 <% @pets.each do |pet| %>
   <ul>
-    <li> <%= link_to pet.name,  pet_path(pet) %> </li>
-    <li> <%= image_tag "app/assets/images/BLACK-CAT.jpg", alt: "black-cat" %></li>
+    <li> <%= link_to pet.name, pet_path(pet) %> </li>
   </ul>
+<% end %>
+
+ <%= link_to "add a new lost pet", new_pet_path %>
+
