@@ -14,7 +14,11 @@ class PetsController < ApplicationController
 
   def create
     @pet = Pet.new(params_pet)
-    @pet.save!
+      if @pet.save
+        redirect_to pets_path 
+      else
+        flash[:error] = "there was a problem, try again" 
+      end
   end
 
   def edit
