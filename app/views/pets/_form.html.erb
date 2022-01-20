@@ -1,8 +1,9 @@
 <div>
-  <%= simple_form_for(@pet) do |f| %>
+  <%= simple_form_for(obj) do |f| %>
     <%= f.input :name %>
     <%= f.input :species, collection: Pet::SPECIES %>
     <%= f.input :address %>
+    <%= f.input :photo, as: :file %>
     <%= f.submit %>
   <% end %>
 </div>

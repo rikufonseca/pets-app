@@ -15,9 +15,10 @@ class PetsController < ApplicationController
   def create
     @pet = Pet.new(params_pet)
       if @pet.save
-        redirect_to pets_path 
+        redirect_to pets_path
       else
-        flash[:error] = "there was a problem, try again" 
+        flash[:notice] = "Something went wrong, please try again!"
+        render :new 
       end
   end
 
@@ -25,11 +26,16 @@ class PetsController < ApplicationController
   end
 
   def update
-    @pet.update
+    if @pet.update(params_pet)
+      redirect_to pet_path(@pet)
+    else
+      render :edit
+    end
   end
 
   def destroy
     @pet.destroy
+    redirect_to pets_path, notice: "You delete this adorable pet, hope you found it!"
   end
 
   private
