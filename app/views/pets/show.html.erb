@@ -2,9 +2,14 @@
 <h2> <%= @pet.species %></h2>
 
 <div>
-  <%= image_tag(@pet.image) %>
+  <% if @pet.image.attached? %>
+    <%= cl_image_tag @pet.image.key %>
+  <% else %>
+    <%= image_tag(@pet.image) %>
+  <% end %>
+     
 </div>
 <p> <%= @pet.address %></p>
 
-<%= link_to "back to the list", pets_path  %>
+<%= link_to "back to the list", pets_path  %> <br>
 <%= link_to "update this pet", edit_pet_path(@pet) %>
