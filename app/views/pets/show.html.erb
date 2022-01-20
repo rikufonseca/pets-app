@@ -1,0 +1,9 @@
+<h1> <%= @pet.name %> </h1>
+<h2> <%= @pet.species %></h2>
+
+<div>
+  <%= image_tag(@pet.image) %>
+</div>
+<p> <%= @pet.address %></p>
+
+<%= link_to "back to the list", pets_path  %>
