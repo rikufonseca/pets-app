@@ -10,9 +10,9 @@ Pet.destroy_all
 puts "start seedings.."
 
 pet1 = Pet.create(name:"Leo", species:"Cat")
-pet1.image.attach(io: File.open("app/assets/images/leo.jpg"), filename: "leo.jpg")
+pet1.image.attach(io: File.open("app/assets/images/leo.jpg"), filename: "leo.jpg", content_type: "image/jpeg")
 
 pet2 = Pet.create!(name:"Pantoufle", species:"Dog")
-pet2.image.attach(io: File.open('app/assets/images/pantoufle.jpg'), filename: "pantoufle.jpg")
+pet2.image.attach(io: File.open('app/assets/images/pantoufle.jpg'), filename: "pantoufle.jpg", content_type: "image/jpeg")
 
 puts "seeds done, pets created..."

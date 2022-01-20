@@ -14,7 +14,7 @@ class PetsController < ApplicationController
 
   def create
     @pet = Pet.new(params_pet)
-      if @pet.save
+      if @pet.save!
         redirect_to pets_path
       else
         flash[:notice] = "Something went wrong, please try again!"
@@ -41,7 +41,7 @@ class PetsController < ApplicationController
   private
 
   def params_pet
-    params.require(:pet).permit(:name, :species, :image)
+    params.require(:pet).permit(:name, :species, :image, :address)
   end
 
   def pet
