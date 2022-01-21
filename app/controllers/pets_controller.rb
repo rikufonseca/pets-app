@@ -1,4 +1,5 @@
 class PetsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show ]
   before_action :pet, only: [:show, :edit, :update, :destroy]
 
   def index
